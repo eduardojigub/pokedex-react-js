@@ -19,7 +19,7 @@ export const Home = () => {
     }
     console.log(endpoints);
 
-    var response = axios
+    axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((res) => setPokemons(res))
       .catch((err) => console.log(err));
@@ -30,9 +30,22 @@ export const Home = () => {
     //   .catch((err) => console.log(err));
   };
 
+  const pokemonFilter = (name) => {
+    var filteredPokemons = [];
+    if (name === "") {
+      getPokemons();
+    }
+    for (var i in pokemons) {
+      if (pokemons[i].data.name.includes(name)) {
+        filteredPokemons.push(pokemons[i]);
+      }
+    }
+    setPokemons(filteredPokemons);
+  };
+
   return (
     <div>
-      <Navbar />
+      <Navbar pokemonFilter={pokemonFilter} />
       <Container maxWidth='false'>
         <Grid container spacing={3}>
           {pokemons.map((pokemon, key) => (
@@ -40,6 +53,7 @@ export const Home = () => {
               <PokemonCard
                 name={pokemon.data.name}
                 image={pokemon.data.sprites.front_default}
+                types={pokemon.data.types}
               />
             </Grid>
           ))}
