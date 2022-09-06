@@ -3,7 +3,6 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -49,28 +48,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({ pokemonFilter }) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "2em" }}>
-      <AppBar position='static'>
+      <AppBar position='static' sx={{ backgroundColor: "black" }}>
         <Toolbar>
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            Pokemon
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder='Search…'
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+          <Box display='flex' justifyContent='space-between' width='100%'>
+            <Box component='img' src='/assets/pokemon-logo.png' height='3em' />
+            <Search onChange={(e) => pokemonFilter(e.target.value)}>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder='Pesquise aqui'
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

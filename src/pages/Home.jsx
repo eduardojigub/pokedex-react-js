@@ -39,10 +39,7 @@ export const Home = () => {
             <Grid item xs={2} key={key}>
               <PokemonCard
                 name={pokemon.data.name}
-                image={
-                  pokemon.data.sprites.versions["generation-v"]["black-white"]
-                    .animated.front_default
-                }
+                image={pokemon.data.sprites.front_default}
               />
             </Grid>
           ))}
