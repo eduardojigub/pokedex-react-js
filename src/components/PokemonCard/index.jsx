@@ -3,12 +3,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Box } from "@mui/material";
 
 export default function PokemonCard({ name, image, types }) {
   const typeHandler = () => {
     if (types[1]) {
-      return types[0].type.name + " " + types[1].type.name;
+      return types[0].type.name + " | " + types[1].type.name;
     }
     return types[0].type.name;
   };
@@ -18,12 +18,18 @@ export default function PokemonCard({ name, image, types }) {
       <CardActionArea>
         <CardMedia component='img' height='200' image={image} alt='pokemon' />
         <CardContent>
-          <Typography gutterBottom variant='h5' component='div'>
-            {name}
-          </Typography>
-          <Typography gutterBottom variant='h6' component='div'>
-            {typeHandler()}
-          </Typography>
+          <Box
+            display='flex'
+            justifyContent='space-between'
+            alignItems='center'
+          >
+            <Typography gutterBottom variant='h5' component='div'>
+              {name}
+            </Typography>
+            <Typography gutterBottom variant='caption' component='div'>
+              {typeHandler()}
+            </Typography>
+          </Box>
           {/* <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
           species, ranging across all continents except Antarctica
