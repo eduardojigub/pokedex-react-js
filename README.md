@@ -24,6 +24,6 @@
 
 ## GIF from the project:
 <p align="center">
-  <img  src="https://user-images.githubusercontent.com/47367373/188230190-dd554d31-e50f-49b9-ad91-16babfe020b9.gif"
-lt="Weather React App"/>
+  <img  src="https://user-images.githubusercontent.com/47367373/188731217-3f1a0078-814a-40ec-a4ec-f59299613478.gif"
+lt="Pokedex React App"/>
 </p>
