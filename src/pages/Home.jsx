@@ -13,10 +13,19 @@ export const Home = () => {
   }, []);
 
   const getPokemons = () => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon?limit=50")
-      .then((res) => setPokemons(res.data.results))
-      .catch((err) => console.log(err));
+    var endpoints = [];
+    for (var i = 1; i < 50; i++) {
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    }
+    console.log(endpoints);
+
+    var response = axios.all(endpoints.map((endpoint) => axios.get(endpoint)));
+    return response;
+
+    // axios
+    //   .get("https://pokeapi.co/api/v2/pokemon?limit=50")
+    //   .then((res) => setPokemons(res.data.results))
+    //   .catch((err) => console.log(err));
   };
 
   return (
