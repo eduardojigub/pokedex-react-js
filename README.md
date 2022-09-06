@@ -18,8 +18,7 @@
  Make git clone;
 
   - Give the command `npm install`;
-  - Use `npm start;
- ```
+  - Use `npm start`;
 
 2. Access through the Vercel link: https://pokedex-react-js-rose.vercel.app/
 
