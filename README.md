@@ -4,7 +4,7 @@
 
 - Creating a SPA using ReactJS
 - Create functional components in React
-- Use props and handling functions to interate with the page. 
+- Use props and handling functions to interact with the page. 
 - Use Material UI for design (Skeletons, Navbar, grid, etc)
 - Request an api from https://pokeapi.co/
 
